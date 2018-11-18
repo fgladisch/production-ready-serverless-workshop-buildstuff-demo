@@ -1,19 +1,9 @@
 version: 0.2
 
 phases:
-  integrationTest:
+  build:
     commands:
       - npm install
       - npm run test
-  deploy:
-    commands:
-      - npm install
       - npm run sls -- deploy -s $STAGE -r $REGION
-  acceptanceTest:
-    commands:
-      - npm install
       - npm run acceptance
-
-cache:
-  paths:
-    - node_modules
